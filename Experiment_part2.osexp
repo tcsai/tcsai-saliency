@@ -1,0 +1,779 @@
+---
+API: 2
+OpenSesame: 3.1.3
+Platform: nt
+---
+set width 1024
+set uniform_coordinates yes
+set title "PyGaze eye-tracking template"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend xpyriment
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "C:\\Users\\Ilse\\Dropbox\\dropboxinhoud\\LINGUISTICS\\jaar 2\\Internship\\Akos"
+set disable_garbage_collection yes
+set description "A template for eye-tracking experiments"
+set coordinates relative
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend xpyriment
+set bidi yes
+set background black
+
+define sketchpad break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color="#ffffff" font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Time for a break!<br /><br /><br /><u>Press a key</u> as soon as you are <br /><br /> ready to start another round." x=0 y=0 z_index=0
+
+define sketchpad end_of_experiment
+	set start_response_interval no
+	set duration keypress
+	set description "A sketchpad notifying the participant that the experiment is finished"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="This is the end of the experiment.<br /><br />Thank you for participating!" x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "The main sequence of the experiment"
+	run break always
+	run response_mapping always
+	run new_pygaze_init always
+	run experimental_loop always
+	run end_of_experiment always
+
+define loop experimental_block_loop
+	set source_file "table.xlsx"
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "A single block of trials"
+	set cycles 52
+	set continuous no
+	set column_order ""
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 image "312946.png"
+	setcycle 0 sound "312946.wav"
+	setcycle 0 verification "Are the cows facing the train?"
+	setcycle 0 correct_response "[no_button]"
+	setcycle 1 image "494771.png"
+	setcycle 1 sound "494771.wav"
+	setcycle 1 verification "Are all the candles lit?"
+	setcycle 1 correct_response "[no_button]"
+	setcycle 2 image "515878.png"
+	setcycle 2 sound "515878.wav"
+	setcycle 2 verification "Is the kitchen messy?"
+	setcycle 2 correct_response "[no_button]"
+	setcycle 3 image "439439.png"
+	setcycle 3 sound "439439.wav"
+	setcycle 3 verification "Is the refrigerator empty?"
+	setcycle 3 correct_response "[no_button]"
+	setcycle 4 image "441453.png"
+	setcycle 4 sound "441453.wav"
+	setcycle 4 verification "Is the man sitting on a Harley-Davidson motorcycle?"
+	setcycle 4 correct_response "[yes_button]"
+	setcycle 5 image "448509.png"
+	setcycle 5 sound "448509.wav"
+	setcycle 5 verification "Are they sharing donuts and wine?"
+	setcycle 5 correct_response "[no_button]"
+	setcycle 6 image "304079.png"
+	setcycle 6 sound "304079.wav"
+	setcycle 6 verification "Are there any animals present?"
+	setcycle 6 correct_response "[no_button]"
+	setcycle 7 image "391978.png"
+	setcycle 7 sound "391978.wav"
+	setcycle 7 verification "Are the lights on?"
+	setcycle 7 correct_response "[no_button]"
+	setcycle 8 image "489550.png"
+	setcycle 8 sound "489550.wav"
+	setcycle 8 verification "Are there any apples on the serving tray?"
+	setcycle 8 correct_response "[no_button]"
+	setcycle 9 image "205756.png"
+	setcycle 9 sound "205756.wav"
+	setcycle 9 verification "Are the people eating outdoors?"
+	setcycle 9 correct_response "[no_button]"
+	setcycle 10 image "456886.png"
+	setcycle 10 sound "456886.wav"
+	setcycle 10 verification "Are there cars on the street?"
+	setcycle 10 correct_response "[no_button]"
+	setcycle 11 image "532132.png"
+	setcycle 11 sound "532132.wav"
+	setcycle 11 verification "Is this a home?"
+	setcycle 11 correct_response "[no_button]"
+	setcycle 12 image "391333.png"
+	setcycle 12 sound "391333.wav"
+	setcycle 12 verification "Is this boat a pleasure boat?"
+	setcycle 12 correct_response "[no_button]"
+	setcycle 13 image "71826.png"
+	setcycle 13 sound "71826.wav"
+	setcycle 13 verification "Is there any alcohol present?"
+	setcycle 13 correct_response "[yes_button]"
+	setcycle 14 image "307567.png"
+	setcycle 14 sound "307567.wav"
+	setcycle 14 verification "Is this plane riding down the runway?"
+	setcycle 14 correct_response "[no_button]"
+	setcycle 15 image "612.png"
+	setcycle 15 sound "612.wav"
+	setcycle 15 verification "Are there any Christmas decorations in this room?"
+	setcycle 15 correct_response "[yes_button]"
+	setcycle 16 image "490318.png"
+	setcycle 16 sound "490318.wav"
+	setcycle 16 verification "Is it sunny?"
+	setcycle 16 correct_response "[yes_button]"
+	setcycle 17 image "301110.png"
+	setcycle 17 sound "301110.wav"
+	setcycle 17 verification "Are these people in an airport?"
+	setcycle 17 correct_response "[yes_button]"
+	setcycle 18 image "12897.png"
+	setcycle 18 sound "12897.wav"
+	setcycle 18 verification "Are there more than three suitcases?"
+	setcycle 18 correct_response "[yes_button]"
+	setcycle 19 image "469026.png"
+	setcycle 19 sound "469026.wav"
+	setcycle 19 verification "Is there a man sitting in the blue car?"
+	setcycle 19 correct_response "[yes_button]"
+	setcycle 20 image "408624.png"
+	setcycle 20 sound "408624.wav"
+	setcycle 20 verification "Are these boats tied up to a wharf?"
+	setcycle 20 correct_response "[yes_button]"
+	setcycle 21 image "271759.png"
+	setcycle 21 sound "271759.wav"
+	setcycle 21 verification "Is she wearing a necklace?"
+	setcycle 21 correct_response "[yes_button]"
+	setcycle 22 image "117719.png"
+	setcycle 22 sound "117719.wav"
+	setcycle 22 verification "Is this scene in a bar?"
+	setcycle 22 correct_response "[yes_button]"
+	setcycle 23 image "24159.png"
+	setcycle 23 sound "24159.wav"
+	setcycle 23 verification "Is this a Christmas cake?"
+	setcycle 23 correct_response "[yes_button]"
+	setcycle 24 image "53800.png"
+	setcycle 24 sound "53800.wav"
+	setcycle 24 verification "Do the boy's shorts match the bed linens? "
+	setcycle 24 correct_response "[yes_button]"
+	setcycle 25 image "388933.png"
+	setcycle 25 sound "388933.wav"
+	setcycle 25 verification "Is the street wet from the rain?"
+	setcycle 25 correct_response "[yes_button]"
+	setcycle 26 image "397664.png"
+	setcycle 26 sound "397664.wav"
+	setcycle 26 verification ""
+	setcycle 26 correct_response ""
+	setcycle 27 image "299492.png"
+	setcycle 27 sound "299492.wav"
+	setcycle 27 verification ""
+	setcycle 27 correct_response ""
+	setcycle 28 image "473712.png"
+	setcycle 28 sound "473712.wav"
+	setcycle 28 verification ""
+	setcycle 28 correct_response ""
+	setcycle 29 image "572565.png"
+	setcycle 29 sound "572565.wav"
+	setcycle 29 verification ""
+	setcycle 29 correct_response ""
+	setcycle 30 image "282730.png"
+	setcycle 30 sound "282730.wav"
+	setcycle 30 verification ""
+	setcycle 30 correct_response ""
+	setcycle 31 image "522146.png"
+	setcycle 31 sound "522146.wav"
+	setcycle 31 verification ""
+	setcycle 31 correct_response ""
+	setcycle 32 image "389021.png"
+	setcycle 32 sound "389021.wav"
+	setcycle 32 verification ""
+	setcycle 32 correct_response ""
+	setcycle 33 image "309386.png"
+	setcycle 33 sound "309386.wav"
+	setcycle 33 verification ""
+	setcycle 33 correct_response ""
+	setcycle 34 image "271862.png"
+	setcycle 34 sound "271862.wav"
+	setcycle 34 verification ""
+	setcycle 34 correct_response ""
+	setcycle 35 image "314812.png"
+	setcycle 35 sound "314812.wav"
+	setcycle 35 verification ""
+	setcycle 35 correct_response ""
+	setcycle 36 image "530896.png"
+	setcycle 36 sound "530896.wav"
+	setcycle 36 verification ""
+	setcycle 36 correct_response ""
+	setcycle 37 image "110944.png"
+	setcycle 37 sound "110944.wav"
+	setcycle 37 verification ""
+	setcycle 37 correct_response ""
+	setcycle 38 image "171536.png"
+	setcycle 38 sound "171536.wav"
+	setcycle 38 verification ""
+	setcycle 38 correct_response ""
+	setcycle 39 image "344669.png"
+	setcycle 39 sound "344669.wav"
+	setcycle 39 verification ""
+	setcycle 39 correct_response ""
+	setcycle 40 image "79106.png"
+	setcycle 40 sound "79106.wav"
+	setcycle 40 verification ""
+	setcycle 40 correct_response ""
+	setcycle 41 image "527573.png"
+	setcycle 41 sound "527573.wav"
+	setcycle 41 verification ""
+	setcycle 41 correct_response ""
+	setcycle 42 image "83770.png"
+	setcycle 42 sound "83770.wav"
+	setcycle 42 verification ""
+	setcycle 42 correct_response ""
+	setcycle 43 image "522897.png"
+	setcycle 43 sound "522897.wav"
+	setcycle 43 verification ""
+	setcycle 43 correct_response ""
+	setcycle 44 image "271870.png"
+	setcycle 44 sound "271870.wav"
+	setcycle 44 verification ""
+	setcycle 44 correct_response ""
+	setcycle 45 image "128201.png"
+	setcycle 45 sound "128201.wav"
+	setcycle 45 verification ""
+	setcycle 45 correct_response ""
+	setcycle 46 image "530433.png"
+	setcycle 46 sound "530433.wav"
+	setcycle 46 verification ""
+	setcycle 46 correct_response ""
+	setcycle 47 image "536514.png"
+	setcycle 47 sound "536514.wav"
+	setcycle 47 verification ""
+	setcycle 47 correct_response ""
+	setcycle 48 image "114617.png"
+	setcycle 48 sound "114617.wav"
+	setcycle 48 verification ""
+	setcycle 48 correct_response ""
+	setcycle 49 image "19236.png"
+	setcycle 49 sound "19236.wav"
+	setcycle 49 verification ""
+	setcycle 49 correct_response ""
+	setcycle 50 image "78553.png"
+	setcycle 50 sound "78553.wav"
+	setcycle 50 verification ""
+	setcycle 50 correct_response ""
+	setcycle 51 image "536648.png"
+	setcycle 51 sound "536648.wav"
+	setcycle 51 verification ""
+	setcycle 51 correct_response ""
+	run trial_sequence
+
+define loop experimental_block_loop_1
+	set source_file "table.xlsx"
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "A single block of trials"
+	set cycles 52
+	set continuous no
+	set column_order ""
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 image "312946.png"
+	setcycle 0 sound "312946.wav"
+	setcycle 0 verification "Are the cows facing the train?"
+	setcycle 0 correct_response "[no_button]"
+	setcycle 1 image "494771.png"
+	setcycle 1 sound "494771.wav"
+	setcycle 1 verification "Are all the candles lit?"
+	setcycle 1 correct_response "[no_button]"
+	setcycle 2 image "515878.png"
+	setcycle 2 sound "515878.wav"
+	setcycle 2 verification "Is the kitchen messy?"
+	setcycle 2 correct_response "[no_button]"
+	setcycle 3 image "439439.png"
+	setcycle 3 sound "439439.wav"
+	setcycle 3 verification "Is the refrigerator empty?"
+	setcycle 3 correct_response "[no_button]"
+	setcycle 4 image "441453.png"
+	setcycle 4 sound "441453.wav"
+	setcycle 4 verification "Is the man sitting on a Harley-Davidson motorcycle?"
+	setcycle 4 correct_response "[yes_button]"
+	setcycle 5 image "448509.png"
+	setcycle 5 sound "448509.wav"
+	setcycle 5 verification "Are they sharing donuts and wine?"
+	setcycle 5 correct_response "[no_button]"
+	setcycle 6 image "304079.png"
+	setcycle 6 sound "304079.wav"
+	setcycle 6 verification "Are there any animals present?"
+	setcycle 6 correct_response "[no_button]"
+	setcycle 7 image "391978.png"
+	setcycle 7 sound "391978.wav"
+	setcycle 7 verification "Are the lights on?"
+	setcycle 7 correct_response "[no_button]"
+	setcycle 8 image "489550.png"
+	setcycle 8 sound "489550.wav"
+	setcycle 8 verification " Are there any apples on the serving tray?"
+	setcycle 8 correct_response "[no_button]"
+	setcycle 9 image "205756.png"
+	setcycle 9 sound "205756.wav"
+	setcycle 9 verification "Are the people eating outdoors?"
+	setcycle 9 correct_response "[no_button]"
+	setcycle 10 image "456886.png"
+	setcycle 10 sound "456886.wav"
+	setcycle 10 verification "Are there cars on the street?"
+	setcycle 10 correct_response "[no_button]"
+	setcycle 11 image "532132.png"
+	setcycle 11 sound "532132.wav"
+	setcycle 11 verification " Is this a home?"
+	setcycle 11 correct_response "[no_button]"
+	setcycle 12 image "391333.png"
+	setcycle 12 sound "391333.wav"
+	setcycle 12 verification "Is this boat a pleasure boat?"
+	setcycle 12 correct_response "[no_button]"
+	setcycle 13 image "71826.png"
+	setcycle 13 sound "71826.wav"
+	setcycle 13 verification "Is there any alcohol present?"
+	setcycle 13 correct_response "[yes_button]"
+	setcycle 14 image "307567.png"
+	setcycle 14 sound "307567.wav"
+	setcycle 14 verification "Is this plane riding down the runway?"
+	setcycle 14 correct_response "[no_button]"
+	setcycle 15 image "612.png"
+	setcycle 15 sound "612.wav"
+	setcycle 15 verification "Are there any Christmas decorations in this room?"
+	setcycle 15 correct_response "[yes_button]"
+	setcycle 16 image "490318.png"
+	setcycle 16 sound "490318.wav"
+	setcycle 16 verification "Is it sunny?"
+	setcycle 16 correct_response "[yes_button]"
+	setcycle 17 image "301110.png"
+	setcycle 17 sound "301110.wav"
+	setcycle 17 verification "Are these people on an airport?"
+	setcycle 17 correct_response "[yes_button]"
+	setcycle 18 image "12897.png"
+	setcycle 18 sound "12897.wav"
+	setcycle 18 verification "Are there more than three suitcases?"
+	setcycle 18 correct_response "[yes_button]"
+	setcycle 19 image "469026.png"
+	setcycle 19 sound "469026.wav"
+	setcycle 19 verification "Is there a man sitting in the blue car?"
+	setcycle 19 correct_response "[yes_button]"
+	setcycle 20 image "408624.png"
+	setcycle 20 sound "408624.wav"
+	setcycle 20 verification "Are these boats tied up to a wharf?"
+	setcycle 20 correct_response "[yes_button]"
+	setcycle 21 image "271759.png"
+	setcycle 21 sound "271759.wav"
+	setcycle 21 verification "Is she wearing a necklace?"
+	setcycle 21 correct_response "[yes_button]"
+	setcycle 22 image "117719.png"
+	setcycle 22 sound "117719.wav"
+	setcycle 22 verification "Is this scene in a bar?"
+	setcycle 22 correct_response "[yes_button]"
+	setcycle 23 image "24159.png"
+	setcycle 23 sound "24159.wav"
+	setcycle 23 verification "Is this a Christmas cake?"
+	setcycle 23 correct_response "[yes_button]"
+	setcycle 24 image "53800.png"
+	setcycle 24 sound "53800.wav"
+	setcycle 24 verification "Do the boy's shorts match the bed linens? "
+	setcycle 24 correct_response "[yes_button]"
+	setcycle 25 image "388933.png"
+	setcycle 25 sound "388933.wav"
+	setcycle 25 verification "Is it raining in this photo?"
+	setcycle 25 correct_response "[yes_button]"
+	setcycle 26 image "397664.png"
+	setcycle 26 sound "397664.wav"
+	setcycle 26 verification ""
+	setcycle 26 correct_response ""
+	setcycle 27 image "299492.png"
+	setcycle 27 sound "299492.wav"
+	setcycle 27 verification ""
+	setcycle 27 correct_response ""
+	setcycle 28 image "473712.png"
+	setcycle 28 sound "473712.wav"
+	setcycle 28 verification ""
+	setcycle 28 correct_response ""
+	setcycle 29 image "572565.png"
+	setcycle 29 sound "572565.wav"
+	setcycle 29 verification ""
+	setcycle 29 correct_response ""
+	setcycle 30 image "282730.png"
+	setcycle 30 sound "282730.wav"
+	setcycle 30 verification ""
+	setcycle 30 correct_response ""
+	setcycle 31 image "522146.png"
+	setcycle 31 sound "522146.wav"
+	setcycle 31 verification ""
+	setcycle 31 correct_response ""
+	setcycle 32 image "389021.png"
+	setcycle 32 sound "389021.wav"
+	setcycle 32 verification ""
+	setcycle 32 correct_response ""
+	setcycle 33 image "309386.png"
+	setcycle 33 sound "309386.wav"
+	setcycle 33 verification ""
+	setcycle 33 correct_response ""
+	setcycle 34 image "271862.png"
+	setcycle 34 sound "271862.wav"
+	setcycle 34 verification ""
+	setcycle 34 correct_response ""
+	setcycle 35 image "314812.png"
+	setcycle 35 sound "314812.wav"
+	setcycle 35 verification ""
+	setcycle 35 correct_response ""
+	setcycle 36 image "530896.png"
+	setcycle 36 sound "530896.wav"
+	setcycle 36 verification ""
+	setcycle 36 correct_response ""
+	setcycle 37 image "110944.png"
+	setcycle 37 sound "110944.wav"
+	setcycle 37 verification ""
+	setcycle 37 correct_response ""
+	setcycle 38 image "171536.png"
+	setcycle 38 sound "171536.wav"
+	setcycle 38 verification ""
+	setcycle 38 correct_response ""
+	setcycle 39 image "344669.png"
+	setcycle 39 sound "344669.wav"
+	setcycle 39 verification ""
+	setcycle 39 correct_response ""
+	setcycle 40 image "79106.png"
+	setcycle 40 sound "79106.wav"
+	setcycle 40 verification ""
+	setcycle 40 correct_response ""
+	setcycle 41 image "527573.png"
+	setcycle 41 sound "527573.wav"
+	setcycle 41 verification ""
+	setcycle 41 correct_response ""
+	setcycle 42 image "83770.png"
+	setcycle 42 sound "83770.wav"
+	setcycle 42 verification ""
+	setcycle 42 correct_response ""
+	setcycle 43 image "522897.png"
+	setcycle 43 sound "522897.wav"
+	setcycle 43 verification ""
+	setcycle 43 correct_response ""
+	setcycle 44 image "271870.png"
+	setcycle 44 sound "271870.wav"
+	setcycle 44 verification ""
+	setcycle 44 correct_response ""
+	setcycle 45 image "128201.png"
+	setcycle 45 sound "128201.wav"
+	setcycle 45 verification ""
+	setcycle 45 correct_response ""
+	setcycle 46 image "530433.png"
+	setcycle 46 sound "530433.wav"
+	setcycle 46 verification ""
+	setcycle 46 correct_response ""
+	setcycle 47 image "536514.png"
+	setcycle 47 sound "536514.wav"
+	setcycle 47 verification ""
+	setcycle 47 correct_response ""
+	setcycle 48 image "114617.png"
+	setcycle 48 sound "114617.wav"
+	setcycle 48 verification ""
+	setcycle 48 correct_response ""
+	setcycle 49 image "19236.png"
+	setcycle 49 sound "19236.wav"
+	setcycle 49 verification ""
+	setcycle 49 correct_response ""
+	setcycle 50 image "78553.png"
+	setcycle 50 sound "78553.wav"
+	setcycle 50 verification ""
+	setcycle 50 correct_response ""
+	setcycle 51 image "536648.png"
+	setcycle 51 sound "536648.wav"
+	setcycle 51 verification ""
+	setcycle 51 correct_response ""
+	run trial_sequence_1
+
+define sequence experimental_block_sequence
+	set flush_keyboard yes
+	set description "A sequence containing a single block of trials followed by feedback to the participant"
+	run experimental_block_loop always
+
+define sequence experimental_block_sequence_1
+	set flush_keyboard yes
+	set description "A sequence containing a single block of trials followed by feedback to the participant"
+	run experimental_block_loop_1 always
+
+define loop experimental_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "A loop containing one or more experimental blocks"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice no
+	run experimental_block_sequence
+
+define loop experimental_loop_1
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "A loop containing one or more experimental blocks"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice no
+	run experimental_block_sequence_1
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_1
+	set description "Logs experimental data"
+	set auto_log yes
+
+define inline_script new_inline_script_2
+	set description "Executes Python code"
+	___run__
+	my_canvas = canvas () #create canvas-object
+	#path = exp.pool[var.image] #path to one of the images in the pool
+	path = "C:\\Users\\Ilse\\Desktop\\Stage\\random_images\\coco_id\\" + str(var.image)
+	my_canvas.image(path) #put the image on the canvas
+	my_canvas.show() #show the canvas
+	
+	clock.sleep(2995) # wait 3 seconds
+	
+	#src = pool[var.sound] #path to one of the sounds in the pool  
+	src = "C:\\Users\\Ilse\\Desktop\\Stage\\wav\\" + str(var.sound)
+	
+	my_sampler = sampler(src, volume=1) #create sampler-object
+	my_sampler.play() #play the sound
+	
+	my_canvas.show() #and also show the picture again
+	
+	
+	for i in range(5000):	# check for 5 seconds... (check longest sample duration)
+		if my_sampler.is_playing(): # ...whether the sound is still playing
+			clock.sleep(1) # if it is playing, wait for 1 ms
+			i = i + 1 
+		else: 
+			break # if the sound stopped playing, stop
+	
+	 
+	clock.sleep(1495) #wait another 1500 ms
+	
+	
+	# I need check if the timing is correct... with clock.time() ? how to print these times?
+	__end__
+	set _prepare ""
+
+define inline_script new_inline_script_2_1
+	set description "Executes Python code"
+	___run__
+	my_canvas = canvas () #create canvas-object
+	#path = exp.pool[var.image] #path to one of the images in the pool
+	path = "C:\\Users\\Ilse\\Desktop\\Stage\\random_images\\coco_id\\" + str(var.image)
+	my_canvas.image(path) #put the image on the canvas
+	my_canvas.show() #show the canvas
+	
+	clock.sleep(2995) # wait 3 seconds
+	
+	#src = pool[var.sound] #path to one of the sounds in the pool  
+	src = "C:\\Users\\Ilse\\Desktop\\Stage\\wav\\" + str(var.sound)
+	
+	my_sampler = sampler(src, volume=1) #create sampler-object
+	my_sampler.play() #play the sound
+	
+	my_canvas.show() #and also show the picture again
+	
+	
+	for i in range(5000):	# check for 5 seconds... (check longest sample duration)
+		if my_sampler.is_playing(): # ...whether the sound is still playing
+			clock.sleep(1) # if it is playing, wait for 1 ms
+			i = i + 1 
+		else: 
+			break # if the sound stopped playing, stop
+	
+	 
+	clock.sleep(1495) #wait another 1500 ms
+	
+	
+	# I need check if the timing is correct... with clock.time() ? how to print these times?
+	__end__
+	set _prepare ""
+
+define keyboard_response new_keyboard_response
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response "[correct_response]"
+	set allowed_responses "left;right"
+
+define keyboard_response new_keyboard_response_1
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response "[correct_response]"
+	set allowed_responses "left;right"
+
+define pygaze_init new_pygaze_init
+	set tracker_type EyeTribe
+	set smi_send_port 4444
+	set smi_recv_port 5555
+	set smi_ip "127.0.0.1"
+	set sacc_vel_thr 35
+	set sacc_acc_thr 9500
+	set eyelink_pupil_size_mode area
+	set eyelink_force_drift_correct yes
+	set description "Initialize and calibrate eye tracker"
+	set calibrate yes
+	set calbeep yes
+	set _logfile automatic
+
+define pygaze_drift_correct pygaze_drift_correct
+	set ypos 0
+	set xpos 0
+	set target_style default
+	set target_color "[foreground]"
+	set fixation_triggered yes
+	set draw_target yes
+	set description "Perform eye-tracker drift correction"
+
+define pygaze_drift_correct pygaze_drift_correct_1
+	set ypos 0
+	set xpos 0
+	set target_style default
+	set target_color "[foreground]"
+	set fixation_triggered yes
+	set draw_target yes
+	set description "Perform eye-tracker drift correction"
+
+define pygaze_log pygaze_log
+	set throttle 2
+	set msg ""
+	set description "Writes information to the eye-tracker logfile"
+	set auto_log yes
+
+define pygaze_log pygaze_log_1
+	set throttle 2
+	set msg ""
+	set description "Writes information to the eye-tracker logfile"
+	set auto_log yes
+
+define pygaze_start_recording pygaze_start_recording
+	set status_msg "start_trial [count_trial_sequence]"
+	set description "Puts the eye tracker into recording mode"
+
+define pygaze_start_recording pygaze_start_recording_1
+	set status_msg "start_trial [count_trial_sequence]"
+	set description "Puts the eye tracker into recording mode"
+
+define pygaze_stop_recording pygaze_stop_recording
+	set status_msg stop_trial
+	set description "Stops recording of eye tracking data"
+
+define pygaze_stop_recording pygaze_stop_recording_1
+	set status_msg stop_trial
+	set description "Stops recording of eye tracking data"
+
+define inline_script response_mapping
+	set description "Executes Python code"
+	set _run ""
+	___prepare__
+	#counterbalancing what button should be pressed when a statement is false/true
+	
+	
+	if var.subject_parity == 'even':
+		var.yes_button = 'left'  
+		var.no_button = 'right' 
+	
+		
+	else:
+		var.yes_button = 'right' 
+	
+		var.no_button = 'left' 
+	__end__
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "A single trial"
+	run pygaze_drift_correct always
+	run pygaze_start_recording always
+	run new_inline_script_2 always
+	run verification_question1 "[subject_parity] == 'odd' and ( [correct_response] == [yes_button] or [correct_response]==[no_button])"
+	run verification_question2_1 "[subject_parity] == 'even' and ( [correct_response] == [yes_button] or [correct_response]==[no_button])"
+	run new_keyboard_response "[correct_response] == [no_button] or [correct_response] == [yes_button]"
+	run logger always
+	run pygaze_log always
+	run pygaze_stop_recording always
+
+define sequence trial_sequence_1
+	set flush_keyboard yes
+	set description "A single trial"
+	run pygaze_drift_correct_1 always
+	run pygaze_start_recording_1 always
+	run new_inline_script_2_1 always
+	run verification_question1_2 "[subject_parity] == 'odd' and ( [correct_response] == [yes_button] or [correct_response]==[no_button])"
+	run verification_question2_1_1 "[subject_parity] == 'even' and ( [correct_response] == [yes_button] or [correct_response]==[no_button])"
+	run new_keyboard_response_1 "[correct_response] == [no_button] or [correct_response] == [yes_button]"
+	run logger_1 always
+	run pygaze_log_1 always
+	run pygaze_stop_recording_1 always
+
+define sketchpad verification_question1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+	draw textline center=1 color="#ffffff" font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="NO = left" x=-288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="YES = right" x=288 y=-288 z_index=0
+
+define sketchpad verification_question1_2
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+	draw textline center=1 color="#ffffff" font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="NO = left" x=-288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="YES = right" x=288 y=-288 z_index=0
+
+define sketchpad verification_question2_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="YES = left" x=-288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="NO = right" x=288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+
+define sketchpad verification_question2_1_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="YES = left" x=-288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="NO = right" x=288 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[verification]" x=0 y=0 z_index=0
+
